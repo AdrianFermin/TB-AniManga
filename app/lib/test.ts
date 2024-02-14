@@ -1,5 +1,6 @@
 import mysql from "mysql2/promise";
 import { testType } from "./definitions";
+import { unstable_noStore as noStore } from 'next/cache';
 
 const createConn = async() => {
     const pool = await mysql.createPool({
@@ -16,6 +17,7 @@ const createConn = async() => {
 }
 
 const executeQuery = async () => {
+    noStore();
     
     try{
         const pool = await createConn();
