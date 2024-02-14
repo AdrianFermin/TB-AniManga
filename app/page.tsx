@@ -10,7 +10,7 @@ export default async function Home() {
 
   return (
     <main>
-      <div className="text-9xl">
+      <div>
         {hola.map((user) => (
           <div key={user.id_prueba} className="text-5xl">
             {user.pruebacol}
