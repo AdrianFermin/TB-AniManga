@@ -16,6 +16,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <Providers>
+          <div className="text-8xl">Hola Animanga</div>
           {children}
         </Providers>
       </body>
