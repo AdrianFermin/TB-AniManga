@@ -1,4 +1,5 @@
 import mysql from "mysql2/promise";
+import { testType } from "./definitions";
 
 const createConn = async() => {
     const pool = await mysql.createPool({
@@ -20,10 +21,10 @@ const executeQuery = async () => {
         const pool = await createConn();
         const [result] = await pool.execute("SELECT * FROM prueba", []);
         await pool.end();
-        console.log(result);
+        return(result as Array<testType>);
     } catch (error){
         console.error(error)
-        return ["error", "" + error];
+        //return error;
     }
 
 }

@@ -1,13 +1,22 @@
-import Image from "next/image";
 import executeQuery from "./lib/test";
+import { redirect } from "next/navigation";
 
-export default function Home() {
+export default async function Home() {
 
-  executeQuery();
+  const hola = await executeQuery();
+  if(hola === undefined){
+    redirect("/")
+  }
 
   return (
     <main>
-      <div className="text-9xl">Hola Animanga</div>
+      <div className="text-9xl">
+        {hola.map((user) => (
+          <div key={user.id_prueba} className="text-5xl">
+            {user.pruebacol}
+          </div>
+        ))}
+      </div>
     </main>
   );
 }
